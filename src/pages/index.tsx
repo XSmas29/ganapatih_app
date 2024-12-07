@@ -1,59 +1,43 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
+import useData from "@/composables/useData";
+import { useEffect, useRef } from "react";
+import { Spinner } from '@nextui-org/react';
+import MapView from "@/components/MapView";
 
 export default function IndexPage() {
+  const { loadingData, data, getData } = useData();
+
+  const params = useRef({
+    time_min: null,
+    time_max: null,
+    fare_min: null,
+    fare_max: null,
+    distance_min: null,
+    distance_max: null,
+    payment_type: null,
+  });
+
+  useEffect(() => {
+    getData(params.current);
+  }, [params]);
+
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <span className={title()}>Make&nbsp;</span>
-          <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
-          <br />
-          <span className={title()}>
-            websites regardless of your design experience.
-          </span>
-          <div className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
-          </div>
-        </div>
-
+        {loadingData ? (
+          <Spinner size="lg" >
+            <p className="text-lg text-center text-default-900">
+              {loadingData ? "Loading data..." : "Data loaded"}
+            </p>
+          </Spinner>
+        ) : (
+          // <p className="text-lg text-center text-default-900">
+          //   {data.map((item, index) => (
+          //     <p key={index}>{item.payment_type}</p>
+          //   ))}
+          // </p>
         <div className="flex gap-3">
-          <Link
-            isExternal
-            className={buttonStyles({
-              color: "primary",
-              radius: "full",
-              variant: "shadow",
-            })}
-            href={siteConfig.links.docs}
-          >
-            Documentation
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            <GithubIcon size={20} />
-            GitHub
-          </Link>
-        </div>
-
-        <div className="mt-8">
-          <Snippet hideCopyButton hideSymbol variant="bordered">
-            <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
-        </div>
+        )}
       </section>
     </DefaultLayout>
   );
