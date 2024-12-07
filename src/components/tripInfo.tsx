@@ -10,17 +10,6 @@ interface TripViewProps {
   item: TaxiData
 }
 
-const columns = [
-  {
-    key: "name",
-    label: "NAME",
-  },
-  {
-    key: "role",
-    label: "ROLE",
-  },
-];
-
 const TripInfo: React.FC<TripViewProps> = ({item}) => {
   return (
     <Popup autoPan={true} closeButton={false}>
@@ -75,19 +64,19 @@ const TripInfo: React.FC<TripViewProps> = ({item}) => {
             </TableRow>
             <TableRow key="2">
               <TableCell className='text-slate-400'>Tolls Amount</TableCell>
-              <TableCell className='text-slate-400'>{formatCurrency(item.total_amount)}</TableCell>
+              <TableCell className='text-slate-400'>{formatCurrency(item.tolls_amount)}</TableCell>
             </TableRow>
             <TableRow key="3">
               <TableCell className='text-slate-400'>Tip Amount</TableCell>
-              <TableCell className='text-slate-400'>{formatCurrency(item.total_amount)}</TableCell>
+              <TableCell className='text-slate-400'>{formatCurrency(item.tip_amount)}</TableCell>
             </TableRow>
             <TableRow key="3">
               <TableCell className='text-slate-400'>MTA Tax</TableCell>
-              <TableCell className='text-slate-400'>{formatCurrency(item.total_amount)}</TableCell>
+              <TableCell className='text-slate-400'>{formatCurrency(item.mta_tax)}</TableCell>
             </TableRow>
             <TableRow key="3">
               <TableCell className='text-slate-400'>IMP Surcharge</TableCell>
-              <TableCell className='text-slate-400'>{formatCurrency(item.total_amount)}</TableCell>
+              <TableCell className='text-slate-400'>{formatCurrency(item.imp_surcharge)}</TableCell>
             </TableRow>
             <TableRow key="3">
               <TableCell className='text-slate-400'>Payment Type</TableCell>

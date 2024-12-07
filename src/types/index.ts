@@ -5,8 +5,10 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 };
 
 export type DataFilter = {
-  time_min?: string | null
-  time_max?: string | null
+  pickup_datetime_min?: string | null
+  pickup_datetime_max?: string | null
+  dropoff_datetime_min?: string | null
+  dropoff_datetime_max?: string | null
   fare_min?: number | null
   fare_max?: number | null
   distance_min?: number | null

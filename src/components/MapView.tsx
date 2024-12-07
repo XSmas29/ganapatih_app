@@ -1,11 +1,10 @@
 import { MapContainer, Marker, Polyline, TileLayer } from 'react-leaflet'
-
-import { TaxiData } from '@/types'
-
 import "leaflet/dist/leaflet.css";
 import React from 'react';
 
 import TripInfo from './tripInfo';
+
+import { TaxiData } from '@/types'
 
 interface MapViewProps {
   data: TaxiData[]
@@ -13,7 +12,7 @@ interface MapViewProps {
 
 const MapView: React.FC<MapViewProps> = ({data}) => {
   return (
-    <MapContainer center={[40.7392683, -73.978627]} scrollWheelZoom={false} zoom={13}>
+    <MapContainer center={[40.7392683, -73.978627]} scrollWheelZoom={true} zoom={13}>
       <TileLayer
         attribution='<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
