@@ -36,7 +36,7 @@ export default function IndexPage() {
           //     <p key={index}>{item.payment_type}</p>
           //   ))}
           // </p>
-        <div className="flex gap-3">
+          MapView()
         )}
       </section>
     </DefaultLayout>
