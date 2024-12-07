@@ -1,17 +1,41 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Polyline, TileLayer } from 'react-leaflet'
 
-export default function MapView() {
+import { TaxiData } from '@/types'
+
+import "leaflet/dist/leaflet.css";
+import React from 'react';
+
+import TripInfo from './tripInfo';
+
+interface MapViewProps {
+  data: TaxiData[]
+}
+
+const MapView: React.FC<MapViewProps> = ({data}) => {
   return (
-    <MapContainer center={[51.505, -0.09]} scrollWheelZoom={false} zoom={13}>
+    <MapContainer center={[40.7392683, -73.978627]} scrollWheelZoom={false} zoom={13}>
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution='<a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[51.505, -0.09]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {data.map((item, index) => (
+        <>
+          <Polyline key={index} pathOptions={
+            {color: 'black', weight: 0.8, opacity: 0.5, lineCap: 'round'}
+          } positions={
+            [[item.pickup_latitude, item.pickup_longitude], [item.dropoff_latitude, item.dropoff_longitude]]
+          } >
+            <Marker key={index} position={[item.dropoff_latitude, item.dropoff_longitude]}>
+              <TripInfo item={item}/>
+            </Marker>
+            <Marker key={index} position={[item.pickup_latitude, item.pickup_longitude]}>
+              <TripInfo item={item}/>
+            </Marker>
+          </Polyline>
+        </>
+      ))}
     </MapContainer>
   )
 }
+
+export default MapView;

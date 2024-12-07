@@ -36,7 +36,7 @@ export default function IndexPage() {
           //     <p key={index}>{item.payment_type}</p>
           //   ))}
           // </p>
-          MapView()
+          <MapView data={data}/>
         )}
       </section>
     </DefaultLayout>

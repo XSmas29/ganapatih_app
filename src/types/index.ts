@@ -16,8 +16,8 @@ export type DataFilter = {
 
 export type TaxiData = {
   vendor_id: string,
-  pickup_datetime: Date,
-  dropoff_datetime: Date,
+  pickup_datetime: string,
+  dropoff_datetime: string,
   passenger_count: number,
   trip_distance: number,
   pickup_longitude: number,
