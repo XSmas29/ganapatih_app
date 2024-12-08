@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
   Filler,
+  ArcElement,
+  BarElement,
 } from "chart.js"
 
 import App from "./App.tsx";
@@ -27,7 +29,9 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  ArcElement,
+  BarElement,
 );
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

@@ -1,5 +1,5 @@
 import { MapContainer, Marker, Polyline, TileLayer } from 'react-leaflet'
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
 import React from 'react';
 
 import TripInfo from './tripInfo';
@@ -19,15 +19,15 @@ const MapView: React.FC<MapViewProps> = ({data}) => {
       />
       {data.map((item, index) => (
         <>
-          <Polyline key={index} pathOptions={
+          <Polyline key={'line-'+index} pathOptions={
             {color: 'black', weight: 0.8, opacity: 0.5, lineCap: 'round'}
           } positions={
             [[item.pickup_latitude, item.pickup_longitude], [item.dropoff_latitude, item.dropoff_longitude]]
           } >
-            <Marker key={index} position={[item.dropoff_latitude, item.dropoff_longitude]}>
+            <Marker key={'marker-dropoff-'+index} position={[item.dropoff_latitude, item.dropoff_longitude]}>
               <TripInfo item={item}/>
             </Marker>
-            <Marker key={index} position={[item.pickup_latitude, item.pickup_longitude]}>
+            <Marker key={'marker-pickup-'+index} position={[item.pickup_latitude, item.pickup_longitude]}>
               <TripInfo item={item}/>
             </Marker>
           </Polyline>

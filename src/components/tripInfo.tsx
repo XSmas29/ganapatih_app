@@ -70,15 +70,15 @@ const TripInfo: React.FC<TripViewProps> = ({item}) => {
               <TableCell className='text-slate-400'>Tip Amount</TableCell>
               <TableCell className='text-slate-400'>{formatCurrency(item.tip_amount)}</TableCell>
             </TableRow>
-            <TableRow key="3">
+            <TableRow key="4">
               <TableCell className='text-slate-400'>MTA Tax</TableCell>
               <TableCell className='text-slate-400'>{formatCurrency(item.mta_tax)}</TableCell>
             </TableRow>
-            <TableRow key="3">
+            <TableRow key="5">
               <TableCell className='text-slate-400'>IMP Surcharge</TableCell>
               <TableCell className='text-slate-400'>{formatCurrency(item.imp_surcharge)}</TableCell>
             </TableRow>
-            <TableRow key="3">
+            <TableRow key="6">
               <TableCell className='text-slate-400'>Payment Type</TableCell>
               <TableCell className='text-slate-400'>{item.payment_type}</TableCell>
             </TableRow>

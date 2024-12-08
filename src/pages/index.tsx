@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, CardBody, CardHeader, DateRangePicker, Input, Select, SelectItem, Spinner } from '@nextui-org/react';
+import {Toaster} from "react-hot-toast";
 
 import DefaultLayout from "@/layouts/default";
 import useData from "@/composables/useData";
@@ -28,7 +29,6 @@ export default function IndexPage() {
   ];
 
   useEffect(() => {
-    console.log(params);
     getData(params);
   }, [params]);
 
@@ -127,7 +127,7 @@ export default function IndexPage() {
       
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         {loadingData ? (
-          <Spinner size="lg" >
+          <Spinner className="m-32" size="lg" >
             <p className="text-lg text-center text-default-900">
               {loadingData ? "Loading data..." : "Data loaded"}
             </p>
@@ -141,6 +141,7 @@ export default function IndexPage() {
           <MapView data={data}/>
         )}
       </section>
+      <Toaster />
     </DefaultLayout>
   );
 }
