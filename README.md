@@ -15,7 +15,10 @@ npm install
 
 ### 2. Configure Environment Variables
 Set up the backend server URL by creating a .env file in the root of your project and adding the following line:
+
+```env
 VITE_REACT_APP_API_URL=<your-backend-server-url>
+```
 
 ### 3. Start the Development Server
 Run the following command to start the app in development mode:
