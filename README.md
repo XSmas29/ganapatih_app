@@ -1,50 +1,25 @@
-# Vite & NextUI Template
+# Next.js App Deployment Guide
 
-This is a template for creating applications using Vite and NextUI (v2).
+This guide explains how to set up and run the Next.js app locally.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/vite-template)
+---
 
-## Technologies Used
+## Steps to Run Locally
 
-- [Vite](https://vitejs.dev/guide/)
-- [NextUI](https://nextui.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
-
-## How to Use
-
-To clone the project, run the following command:
-
-```bash
-git clone https://github.com/nextui-org/vite-template.git
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+### 1. Install Dependencies
+Run the following command to install all required dependencies:
 
 ```bash
 npm install
 ```
 
-### Run the development server
+### 2. Configure Environment Variables
+Set up the backend server URL by creating a .env file in the root of your project and adding the following line:
+VITE_REACT_APP_API_URL=<your-backend-server-url>
+
+### 3. Start the Development Server
+Run the following command to start the app in development mode:
 
 ```bash
 npm run dev
 ```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/nextui-org/vite-template/blob/main/LICENSE).
